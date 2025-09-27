@@ -1,17 +1,10 @@
 import { useState } from 'react';
-// import reactLogo from './assets/react.svg'; // Removed unused imports
-// import viteLogo from '/vite.svg'; // Removed unused imports
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
 
-// --- Image Imports (Assuming these are in the public folder for CSS loading) ---
-// Note: These comments are kept for reference, but actual imports are not needed for CSS backgrounds.
-// -------------------------------------------------------------------------------
-
-
-// Tickets data (12 items)
+// --- Tickets Data (12 items) ---
 const ticketData = [
   {
     id: "#1001",
@@ -146,10 +139,13 @@ function App() {
   const [tickets, setTickets] = useState(initialOpenTickets);
   const [inProgress, setInProgress] = useState(initialInProgress);
   const [resolved, setResolved] = useState(initialResolved);
-  // History state removed as requested
 
+  /**
+   * Moves a ticket from the Open list to the In Progress list.
+   * @param {object} ticket - The ticket object to move.
+   */
   const handleAddToInProgress = (ticket) => {
-    // Prevent adding if already In Progress or Resolved
+    // Prevent adding if already in progress or resolved.
     if (
       inProgress.find((t) => t.id === ticket.id) ||
       resolved.find((t) => t.id === ticket.id)
@@ -158,14 +154,16 @@ function App() {
       return;
     }
     
-    // Move from Open Tickets to In Progress
     setTickets((prev) => prev.filter((t) => t.id !== ticket.id));
     setInProgress((prev) => [...prev, ticket]);
     toast.success(`Added "${ticket.title}" to In Progress.`);
   };
 
+  /**
+   * Moves a ticket from the In Progress list to the Resolved list.
+   * @param {object} ticket - The ticket object to move.
+   */
   const handleCompleteTask = (ticket) => {
-    // Move from In Progress to Resolved
     setInProgress((prev) => prev.filter((t) => t.id !== ticket.id));
     setResolved((prev) => [...prev, ticket]);
     
@@ -190,14 +188,12 @@ function App() {
         </div>
       </nav>
 
-      {/* Banner Section */}
+      {/* Banner Section - Shows current counts */}
       <div className="banner-section">
-        {/* In Progress Banner: Starts at 0 */}
         <div className="banner in-progress-banner">
           <h3>In Progress</h3>
           <p>{inProgress.length}</p> 
         </div>
-        {/* Resolved Banner: Starts at 0 */}
         <div className="banner resolved-banner">
           <h3>Resolved</h3>
           <p>{resolved.length}</p> 
@@ -250,7 +246,7 @@ function App() {
         <div className="task-column">
           <h3>Task Status (In Progress)</h3>
           
-          {/* IN PROGRESS TASKS (Cards with Complete button) */}
+          {/* IN PROGRESS TASKS: Display cards with Complete button */}
           {inProgress.length === 0 ? (
             <p style={{ marginTop: '10px' }}>No tasks in progress.</p>
           ) : (
@@ -269,7 +265,7 @@ function App() {
 
           <h3 style={{ marginTop: '30px' }}>Resolved Tasks</h3> 
           
-          {/* RESOLVED TASKS (Cards without button) */}
+          {/* RESOLVED TASKS: Display static cards */}
           {resolved.length === 0 ? (
             <p style={{ marginTop: '10px' }}>No resolved tasks yet.</p>
           ) : (
@@ -279,12 +275,11 @@ function App() {
                 className="task-card"
                 style={{ 
                     borderLeft: '4px solid #1db954', 
-                    cursor: 'default' // Not clickable
+                    cursor: 'default' 
                 }}
                 title="This task is resolved"
               >
                 <span>{ticket.title}</span>
-                {/* No button here */}
               </div>
             ))
           )}

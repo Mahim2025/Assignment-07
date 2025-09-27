@@ -58,9 +58,7 @@ body {
 
 .banner {
   flex: 1;
-  /* Adjust padding for larger card size */
   padding: 45px 30px; 
-  /* Increase font size */
   font-size: 24px; 
   
   border-radius: 12px;
@@ -88,43 +86,33 @@ body {
     margin-bottom: 5px;
 }
 
-/* Important: When using background with linear-gradient and url(), 
-   the background-size and background-repeat properties must have two comma-separated values 
-   to control the gradient (first value) and the image (second value).
+/*
+  Note: When combining linear-gradient and url() backgrounds, 
+  background-size and background-repeat must use comma-separated values 
+  to control both the gradient (overlay) and the image (pattern).
 */
 
 /* In-Progress Banner: Gradient Overlay and Pattern Image */
 .in-progress-banner {
-  /*
-    Background is set with linear-gradient (for overlay) and url() (for pattern).
-    Opacity is adjusted to make the pattern visible (e.g., 0.85 opacity).
-  */
   background: 
     /* Gradient (Overlay - Purple) */
     linear-gradient(135deg, rgba(123, 63, 243, 0.85), rgba(168, 133, 255, 0.9)), 
-    /* Image (Pattern) - Assuming /vector1.png is in the public folder */
+    /* Image (Pattern) */
     url('/vector1.png'); 
   
-  /* Gradient covers, Image covers/autos */
   background-size: cover, cover; 
-  /* Gradient no-repeat, Image no-repeat (assuming the pattern is large enough) */
   background-repeat: no-repeat, no-repeat; 
   background-position: center, center;
 }
 
 /* Resolved Banner: Gradient Overlay and Pattern Image */
 .resolved-banner {
-  /*
-    Background is set with linear-gradient (for overlay) and url() (for pattern).
-    Opacity is adjusted to make the pattern visible.
-  */
   background: 
     /* Gradient (Overlay - Green) */
     linear-gradient(135deg, rgba(29, 185, 84, 0.85), rgba(37, 227, 107, 0.9)), 
-    /* Image (Pattern) - Assuming /vector1.png is in the public folder */
+    /* Image (Pattern) */
     url('/vector1.png'); 
               
-  /* Gradient covers, Image covers/autos */
   background-size: cover, cover; 
   background-repeat: no-repeat, no-repeat; 
   background-position: center, center;
@@ -138,7 +126,7 @@ body {
   gap: 30px;
 }
 
-/* Left Side: Tickets */
+/* Left Side: Tickets Grid */
 .tickets-column {
   flex: 3;
 }
