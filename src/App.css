@@ -1,0 +1,372 @@
+/* App.css - Final Merged Version */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+.new-ticket-btn {
+  background-color: #7b3ff3;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.new-ticket-btn:hover {
+  background-color: #6527e0;
+}
+
+/* --- Banner Section --- */
+.banner-section {
+  display: flex;
+  gap: 20px;
+  padding: 20px 30px;
+  justify-content: center;
+}
+
+.banner {
+  flex: 1;
+  /* Adjust padding for larger card size */
+  padding: 45px 30px; 
+  /* Increase font size */
+  font-size: 24px; 
+  
+  border-radius: 12px;
+  color: white; 
+  text-align: center;
+  font-weight: bold;
+  
+  /* Background styles for image pattern */
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden; 
+}
+
+/* Style for the number count inside the banner */
+.banner p {
+    font-size: 60px; 
+    margin: 10px 0 0 0;
+}
+
+/* Style for the banner title */
+.banner h3 {
+    font-size: 24px; 
+    margin-bottom: 5px;
+}
+
+/* Important: When using background with linear-gradient and url(), 
+   the background-size and background-repeat properties must have two comma-separated values 
+   to control the gradient (first value) and the image (second value).
+*/
+
+/* In-Progress Banner: Gradient Overlay and Pattern Image */
+.in-progress-banner {
+  /*
+    Background is set with linear-gradient (for overlay) and url() (for pattern).
+    Opacity is adjusted to make the pattern visible (e.g., 0.85 opacity).
+  */
+  background: 
+    /* Gradient (Overlay - Purple) */
+    linear-gradient(135deg, rgba(123, 63, 243, 0.85), rgba(168, 133, 255, 0.9)), 
+    /* Image (Pattern) - Assuming /vector1.png is in the public folder */
+    url('/vector1.png'); 
+  
+  /* Gradient covers, Image covers/autos */
+  background-size: cover, cover; 
+  /* Gradient no-repeat, Image no-repeat (assuming the pattern is large enough) */
+  background-repeat: no-repeat, no-repeat; 
+  background-position: center, center;
+}
+
+/* Resolved Banner: Gradient Overlay and Pattern Image */
+.resolved-banner {
+  /*
+    Background is set with linear-gradient (for overlay) and url() (for pattern).
+    Opacity is adjusted to make the pattern visible.
+  */
+  background: 
+    /* Gradient (Overlay - Green) */
+    linear-gradient(135deg, rgba(29, 185, 84, 0.85), rgba(37, 227, 107, 0.9)), 
+    /* Image (Pattern) - Assuming /vector1.png is in the public folder */
+    url('/vector1.png'); 
+              
+  /* Gradient covers, Image covers/autos */
+  background-size: cover, cover; 
+  background-repeat: no-repeat, no-repeat; 
+  background-position: center, center;
+}
+
+
+/* --- Main Section --- */
+.main-section {
+  display: flex;
+  padding: 0 30px 30px 30px;
+  gap: 30px;
+}
+
+/* Left Side: Tickets */
+.tickets-column {
+  flex: 3;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.ticket-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.open {
+  color: green;
+}
+.status.in-progress {
+  color: #f5a623;
+}
+.status.resolved {
+  color: #1db954;
+}
+
+.ticket-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.priority {
+  font-weight: bold;
+}
+
+.priority.high {
+  color: red;
+}
+
+.priority.medium {
+  color: orange;
+}
+
+.priority.low {
+  color: green;
+}
+
+/* Right Side: Task Status */
+.task-column {
+  flex: 1;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.task-card {
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.complete-btn {
+  background: #1db954;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- Footer Section --- */
+.footer-section {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 30px 0;
+  border-top: 5px solid #000080;
+  box-sizing: border-box;
+}
+
+.footer-content-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2c2c2c;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.logo-column {
+  flex: 2;
+  max-width: 350px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-column p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-column a:hover {
+  color: #7b3ff3;
+}
+
+.social-icon {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .footer-content-top {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .logo-column {
+    flex-basis: 100%;
+    max-width: none;
+  }
+  
+  .footer-column:not(.logo-column) {
+    flex-basis: calc(50% - 20px);
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .main-section {
+    flex-direction: column;
+  }
+
+  .ticket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-section {
+    padding: 20px 15px 0;
+  }
+  
+  .footer-content-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .footer-column {
+    flex-basis: 100%;
+  }
+}
